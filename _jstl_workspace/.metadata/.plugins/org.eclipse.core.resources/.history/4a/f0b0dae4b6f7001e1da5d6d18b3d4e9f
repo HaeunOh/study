@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>step4에서 checkbox로 전송받은 데이터 : paramValues</h1>
+	<h3>
+		과일 1 : ${paramValues.food[0] } <br>
+		과일 2 : ${paramValues.food[1] } <br>
+		과일 3 : ${paramValues.food[2] } <br>
+		과일 4 : ${paramValues.food[3] } <br>
+		과일 5 : ${paramValues.food[4] } <br>
+	
+	</h3>
+	
+</body>
+</html>

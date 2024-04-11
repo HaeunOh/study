@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		CarVO car = new CarVO("1234","소나타", 2000);
+		request.setAttribute("car", car);
+	%>
+	
+	<!-- car 객체 출력 -->
+	${requestScope.car.name } <br>
+	${car.num } <br>
+	${car.price} <br>
+</body>
+</html>

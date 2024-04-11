@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>cif 명령어</h1>
+	<!-- query String 에서 보낸 데이터 받기 (param.key) -->
+	<h2> step-1에서 보낸 데이터 </h2>
+	이름 : ${param.name } <br>
+	나이 : ${param,age } <br>
+</body>
+</html>
