@@ -1,0 +1,17 @@
+package repository;
+
+import domain.BoardVO;
+
+public class BoardDAOImpl implements BoardDAO {
+	
+	// DB 설정 mybatis lib 사용하여 DB 구성 (orm,mapper 설정 후 여기서 DB-dao 연결하기)
+	
+
+	@Override
+	public int insert(BoardVO bvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+}

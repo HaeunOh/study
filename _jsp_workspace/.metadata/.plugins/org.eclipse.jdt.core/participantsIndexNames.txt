@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+/Users/oh-haeun/Desktop/_jsp_workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/885537565.index
+/jsp_study/src/main/java
+/Users/oh-haeun/Desktop/_jsp_workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/544135533.index
+/jsp_study/src/main/java
