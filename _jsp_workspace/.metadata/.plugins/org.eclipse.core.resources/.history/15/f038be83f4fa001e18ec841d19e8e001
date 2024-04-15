@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="MemberMapper">
+  <!-- parameter타입은 안적어도 에러나지 않지만 result타입은 꼭 적어야 함!! -->
+  <insert id="add" parameterType = "domain.MemberVO">
+  	insert into member(id, pwd, age, email, phone) 
+ 	values(#{id},#{pwd},#{age},#{email},#{phone})
+  </insert>
+  
+  <select id="login" resultType="domain.MemberVO">
+  	select * from member where id=#{id}
+  </select>
+  
+  <update id="last">
+  	update member set lastlogin=now() where id=#{id}
+  </update>
+  
+  <select id="all">
+  	select * from member order by id asc;
+  </select>
+  </mapper>

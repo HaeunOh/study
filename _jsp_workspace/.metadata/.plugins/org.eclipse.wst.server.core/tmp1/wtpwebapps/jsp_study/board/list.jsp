@@ -30,5 +30,6 @@
 </table>
 	<br>
 		<a href="/brd/register"> <button>글쓰기</button> </a>
+		<a href="../index.jsp"> <button>돌아가기</button> </a>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>mypage</h1>
+		<form action="/memb/update" method="post">
+		<table border="1">
+		<tr>
+			<th>id</th>
+			<td>${mvo.id}</td>
+		</tr>
+		<tr>
+			<th>pwd</th>
+			<td><input type="text" name="pwd" value="${mvo.pwd}"></td>
+		</tr>
+		<tr>
+			<th>age</th>
+			<td><input type="text" name="pwd" value="${mvo.age}"></td>
+		</tr>
+		<tr>
+			<th>email</th>
+			<td><input type="text" name="pwd" value="${mvo.email}"></td>
+		</tr>
+		<tr>
+			<th>가입일</th>
+			<td>${mvo.regdate }</td>
+		</tr>
+		<tr>
+			<th>최근로그인</th>
+			<td>${mvo.lastlogin }</td>
+		</tr>
+	</table>
+	<button type="submit">수정하기</button>
+	</form>
+	<a href="/memb/delete"> <button>회원탈퇴</button> </a>
+	<%-- id <input type="text" readonly="readonly"> ${ses.id } <br>
+	pwd <input type="text" > ${ses.pwd } <br>
+	age <input type="text" > ${ses.age } <br>
+	email <input type="text" > ${ses.email } <br>
+	regdate <input type="text" readonly="readonly"> ${ses.regdate } <br>
+	lastlogin <input type="text" readonly="readonly"> ${ses.lastlogin } <br>
+	 --%>
+</body>
+</html>

@@ -10,10 +10,11 @@
 <h1>Board Register Page</h1>
 <form action="/brd/insert" method="post">
 	title : <input type="text" name="title"> <br>
-	writer : <input type="text" name="writer"> <br>
+	writer : <input type="text" name="writer" value="${ses.id }" readonly="readonly"> <br>
 	content : <textarea rows="10" cols="30" name="content"></textarea> <br>
 	<button type="submit">등록</button>
 </form>
-	<a href="/brd/list"> <button>돌아가기</button> </a>
+	<a href="/brd/list"> <button>글목록</button> </a>
+	<a href="../index.jsp"> <button>돌아가기</button> </a>
 </body>
 </html>
