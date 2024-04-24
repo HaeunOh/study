@@ -1,0 +1,12 @@
+package com.ezen.test.service;
+
+import org.springframework.stereotype.Service;
+
+import com.ezen.test.domain.BoardVO;
+
+@Service
+public interface BoardService {
+
+	int insert(BoardVO bvo);
+	
+}

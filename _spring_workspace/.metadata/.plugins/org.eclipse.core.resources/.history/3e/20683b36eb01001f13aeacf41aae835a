@@ -1,0 +1,12 @@
+package com.ezen.test.repository;
+
+import com.ezen.test.domain.BoardVO;
+
+public class BoardDAO {
+
+	public int insert(BoardVO bvo) {
+		
+		return 0;
+	}
+	
+}

@@ -1,0 +1,19 @@
+package com.ezen.test.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ezen.test.service.BoardService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@RequestMapping("/board/*")
+@Slf4j
+@Controller
+public class BoardController {
+	
+	@Autowired(required=true)
+	private BoardService bsv;
+}

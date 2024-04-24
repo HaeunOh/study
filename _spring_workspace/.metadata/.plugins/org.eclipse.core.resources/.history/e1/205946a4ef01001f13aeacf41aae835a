@@ -1,0 +1,31 @@
+package com.ezen.test.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ezen.test.domain.BoardVO;
+import com.ezen.test.repository.BoardDAO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+public class BoardServiceImpl implements BoardService{
+	
+	@Autowired(required=true)
+	private BoardDAO bdao;
+
+	@Override
+	public int insert(BoardVO bvo) {
+		// TODO Auto-generated method stub
+		return bdao.insert(bvo);
+	}
+
+	@Override
+	public List<BoardVO> getlist() {
+		// TODO Auto-generated method stub
+		return bdao.getList();
+	}
+}
