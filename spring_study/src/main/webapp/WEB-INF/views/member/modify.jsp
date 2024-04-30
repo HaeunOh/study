@@ -40,7 +40,7 @@
 		</div>
 		
 		<button type="submit" class="btn btn-primary">수정</button>
-		<a href="/member/remove"><button type="button" class="btn btn-danger">회원탈퇴</button></a>
+		<a href="/member/remove?id=${ses.id }"><button type="button" class="btn btn-danger">회원탈퇴</button></a>
 	</form>
 
 

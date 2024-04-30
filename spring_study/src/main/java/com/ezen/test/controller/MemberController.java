@@ -31,6 +31,9 @@ public class MemberController {
 	public String register(MemberVO mvo) {
 		log.info(">>> mvo >>> {}", mvo);
 		int isOk = msv.insert(mvo);
+		if(isOk > 0) {
+			log.info("member register ok!");
+		}
 		return "index";
 	}
 	
@@ -80,7 +83,18 @@ public class MemberController {
 		return "redirect:/member/logout";
 	}
 	
+	@GetMapping("/remove")
+	public String remove(HttpServletRequest request, Model m) {
+		MemberVO mvo = (MemberVO)request.getSession().getAttribute("ses");
+		msv.remove(mvo.getId());
+		log.info(">>> remove id >>> {}", mvo.getId());
+		request.getSession().removeAttribute("ses");
+		request.getSession().invalidate();
+		m.addAttribute("msg_remove", "1");
+		
+		return "index";
+	}
 	
-	
+
 	
 }

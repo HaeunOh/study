@@ -20,4 +20,6 @@ public class BoardVO {
 	private String writer;
 	private String content;
 	private String isDel;
+	private int cmt_qty;
+	private int has_file;
 }

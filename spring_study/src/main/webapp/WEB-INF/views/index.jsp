@@ -23,6 +23,11 @@
 		 if(msg_logout === "1"){
 			 alert("로그아웃 되었습니다.");
 		 }
+		 
+		 const msg_remove = `<c:out value="${msg_remove}"/>`;
+		 if(msg_remove === "1"){
+			 alert("회원 탈퇴가 완료되었습니다.");
+		 }
 	</script>
 <jsp:include page="layout/footer.jsp"/>
 

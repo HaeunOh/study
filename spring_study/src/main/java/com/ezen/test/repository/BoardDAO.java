@@ -13,12 +13,18 @@ public interface BoardDAO {
 
 	BoardVO getDetail(int bno);
 
-	void update(BoardVO bvo);
+	int update(BoardVO bvo);
 
 	void remove(BoardVO bvo);
 
 	void updateReadCount(int bno);
 
 	int getTotal(PagingVO pgvo);
+
+	int selectBno();
+
+	int cmtCnt();
+
+	int fileCnt();
 
 }

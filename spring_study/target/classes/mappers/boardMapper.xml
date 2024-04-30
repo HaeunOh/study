@@ -40,6 +40,22 @@
 		<include refid="search"></include>
 	</select>
 	
+	<select id="selectBno" resultType="int">
+		select max(bno) from board;
+	</select>
+	
+	<update id="cmtCnt">
+		update board b 
+		set b.cmt_qty = (select count(content) from comment c where c.bno = b.bno)
+	</update>
+	
+	<update id="fileCnt">
+		update board b
+		set b.has_file = (select count(uuid) from file f where f.bno = b.bno);
+	</update>
+	
+	
+	
 	<!--  -->
 	<sql id="search">
 		<if test="type != null">

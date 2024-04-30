@@ -1,7 +1,0 @@
-package com.ezen.test.controller;
-
-import com.ezen.test.service.BoardService;
-
-public class BoardController {
-	private final BoardService bsv;
-}

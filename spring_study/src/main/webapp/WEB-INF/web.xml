@@ -24,9 +24,15 @@
 			/WEB-INF/spring/appServlet/servlet-context.xml
 			/WEB-INF/spring/appServlet/security-context.xml
 			</param-value>
-			
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<!-- file upload 할 때 추가해줘야 하는 구문 -->
+		<multipart-config>
+			<location>/Users/oh-haeun/Desktop/_myProject/_java/_fileUpload</location>
+			<max-file-size>20971520</max-file-size>
+			<max-request-size>41943040</max-request-size>
+			<file-size-threshold>20971520</file-size-threshold>		
+			</multipart-config>		
 	</servlet>
 		
 	<servlet-mapping>

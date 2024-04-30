@@ -98,5 +98,12 @@ public class MemberServiceImpl implements MemberService {
 		log.info(">>> pw 수정 후 mvo >>> {}", mvo);
 		mdao.update(mvo);
 	}
+
+	@Override
+	public void remove(String id) {
+		log.info("remove service in!");
+		mdao.remove(id);
+		
+	}
 	
 }

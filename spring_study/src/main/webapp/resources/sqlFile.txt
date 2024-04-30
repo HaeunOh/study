@@ -23,3 +23,45 @@ age int,
 reg_date datetime default now(),
 last_login datetime default now(),
 primary key(id));
+
+--20240426
+create table comment(
+cno int auto_increment,
+bno int not null,
+writer varchar(100) not null,
+content varchar(500),
+reg_date datetime default now(),
+primary key (cno)); 
+
+create table file(
+uuid varchar(256) not null,
+save_dir varchar(256) not null,
+file_name varchar(256) not null,
+file_type tinyint(1) default 0,
+file_size int,
+bno int,
+reg_date datetime default now(),
+primary key(uuid));
+
+-- file 업로드 경로
+/Users/oh-haeun/Desktop/_myProject/_java/_fileUpload
+
+
+--20240430
+alter table board add cmt_qty int default 0;
+alter table board add has_file int default 0;
+
+update board b
+set b.cmt_qty = (select count(content) from comment c where c.bno = b.bno);
+
+update board b
+set b.has_file = (select count(uuid) from file f where f.bno = b.bno);
+
+
+
+
+
+
+
+
+

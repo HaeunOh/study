@@ -48,6 +48,8 @@
 				<th>글쓴이</th>
 				<th>등록일</th>
 				<th>조회수</th>
+				<th>댓글</th>
+				<th>파일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -58,6 +60,8 @@
 					<td>${bvo.writer}</td>
 					<td>${bvo.reg_date}</td>
 					<td>${bvo.read_count}</td>
+					<td>${bvo.cmt_qty}</td>
+					<td>${bvo.has_file}</td>
 				</tr>
 
 			</c:forEach>

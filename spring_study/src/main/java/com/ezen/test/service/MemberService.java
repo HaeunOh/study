@@ -12,4 +12,6 @@ public interface MemberService {
 
 	void modify(MemberVO mvo);
 
+	void remove(String id);
+
 }
