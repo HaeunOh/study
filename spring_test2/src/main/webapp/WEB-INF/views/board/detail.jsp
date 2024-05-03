@@ -34,7 +34,7 @@
 		<div class="mb-3">
 			<span class="input-group-text">With textarea</span>
 			<textarea class="form-control" name="content" id="c"
-				aria-label="With textarea">"${bvo.content}"</textarea>
+				aria-label="With textarea">${bvo.content}</textarea>
 		</div>
 		
 		<!-- image 파일 띄우는 곳 -->
@@ -68,55 +68,69 @@
 				</li>
 			</c:forEach>
   			</ul> --%>
-		</div>
+	<!-- 	</div> -->
 		<!-- comment -->
 		<!-- 댓글 등록 라인  -->
-		<%-- <br>
+		 <br>
 		<hr>
 		<div class="input-group mb-3">
-			<span class="input-group-text" id="cmtWriter">${ses.id }</span> <input
+			<span class="input-group-text" id="cmtWriter">tester</span> <input
 				type="text" class="form-control" placeholder="Add comment..."
 				id="cmtText" aria-label="Username" aria-describedby="basic-addon1">
 				
 				<!-- 내가 에이태그 추가함 -->
-			<a href="/board/cmtCnt"><button type="button" id="cmtAddBtn" class="btn btn-secondary">post</button></a>
+			<button type="button" id="cmtAddBtn" class="btn btn-secondary">post</button>
 		</div>
- --%>
+
 		<!-- 댓글 출력 라인  -->
-
-	<%-- 	<div class="accordion" id="accordionExample">
-			
-			<div class="accordion-item">
-				<h2 class="accordion-header">
-					<button class="accordion-button" type="button"
-						data-bs-toggle="collapse" data-bs-target="#collapseOne"
-						aria-expanded="true" aria-controls="collapseOne">
-						cno, writer, reg_date </button>
-				</h2>
-				<div id="collapseOne" class="accordion-collapse collapse show"
-					data-bs-parent="#accordionExample">
-					<div class="accordion-body">
-						<strong>댓글 내용 표시</strong>
-					</div>
+		<div class="input-group mb-3">
+		<ul class="list-group list-group-flush" id="cmtListArea">
+  			<li class="list-group-item">
+				<div class="input-group mb-3">
+					<div class="fw-bold">writer</div> 
+					content
 				</div>
-			</div>
+				<span class="badge rounded-pill text-bg-dark">regDate</span>
+			</li>
+		</ul>	
 		</div>
-
+		<!-- 댓글 더보기 버튼 -->
+		<div>
+			<button type="button" class="btn btn-light" id="moreBtn" data-page="1" style="visibility: hidden"> MORE + </button>
+		</div>	
+		<!-- 모달창 라인 -->
+		<div class="modal" id="myModal" tabindex="-1">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Writer</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <input type="text" class="form-control" id="cmtTextMod">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary" id="cmtModBtn" >modify</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 			<br>
 			<hr>
-			<c:if test="${ses.id eq bvo.writer }"> --%>
+
 			 <a href="/board/modify?bno=${bvo.bno}"><button type="button" class="btn btn-warning">수정</button></a> 
-			 <a href="/board/remove?bno=${bvo.bno}"><button type="button" class="btn btn-danger">삭제</button></a>
+			 <a href="/board/remove?bno=${bvo.bno}"><button type="button" class="btn btn-danger" id="cmtDelBtn">삭제</button></a>
 			 <%-- </c:if>  --%>
 			 <a href="/board/list"><button type="button" class="btn btn-primary">리스트</button></a>
 
-		<!-- </div>  -->
-		<!-- <script type="text/javascript"> 
+		</div>  
+		<script type="text/javascript"> 
 		const bnoVal = `<c:out value="${bvo.bno}"/>`;
-		const id = `<c:out value="${ses.id }" />`;
+		
 		</script>
 		<script type="text/javascript" src="/resources/js/boardDetailComment.js"></script>
-		<script type="text/javascript"> spreadCommentList(bnoVal); </script> -->
+		 <script type="text/javascript"> spreadCommentList(bnoVal); </script>
 		<jsp:include page="../layout/footer.jsp"></jsp:include>
 		
 		

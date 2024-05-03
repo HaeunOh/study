@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.ezen.www.domain.BoardDTO;
 import com.ezen.www.domain.BoardVO;
+import com.ezen.www.domain.FileVO;
+import com.ezen.www.domain.PagingVO;
+import com.ezen.www.handler.FileHandler;
+import com.ezen.www.handler.PagingHandler;
 import com.ezen.www.service.BoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,23 +29,42 @@ public class BoardController {
 	@Autowired(required=true)
 	private BoardService bsv;
 	
+	@Autowired(required=true)
+	private FileHandler fh;
+	
 	@GetMapping("/register")
 	public String register() {
 		return "/board/register";
 	}
 	
 	@PostMapping("/insert")
-	public String insert(BoardVO bvo) {
+	public String insert(BoardVO bvo, @RequestParam(name="files", required = false) MultipartFile[] files) {
+		List<FileVO> flist = null;
+		if(files[0].getSize() > 0) {
+			//파일이 있다면..
+			flist = fh.uploadFiles(files);
+		}
+		BoardDTO bdto = new BoardDTO(bvo, flist);
 		log.info(">>>>bvo >>{}", bvo);
-		bsv.insert(bvo);
-		return "index";
+		bsv.insert(bdto);
+		return "redirect:/board/list";
 		
 	}
 	
 	@GetMapping("/list")
-	public String list(Model m) {
-		BoardVO bvo = new BoardVO();
-		List<BoardVO> list = bsv.getList(bvo);
+	public String list(Model m, PagingVO pgvo) {
+		
+		log.info(">>> pagingVO >>> {}", pgvo);
+		
+		//페이징 처리 추가
+		List<BoardVO> list = bsv.getList(pgvo);
+		
+		//totalCount 구해오기
+		int totalCount = bsv.getTotal(pgvo);
+		
+		PagingHandler ph = new PagingHandler(pgvo, totalCount);
+		
+		m.addAttribute("ph", ph);
 		m.addAttribute("list", list);
 		return "/board/list";
 	}
@@ -61,6 +86,16 @@ public class BoardController {
 	public String remove(BoardVO bvo) {
 		bsv.remove(bvo);
 		return "redirect:/board/list?isDel="+bvo.getIsDel();
+	}
+	
+	@GetMapping("/cmtCnt")
+	public String cmtCnt() {
+		int isOk = bsv.cmtCnt();
+		if(isOk > 0) {
+			log.info("board cmtCnt ok!");
+			}
+		
+		return "redirect:/board/list";
 	}
 
 	

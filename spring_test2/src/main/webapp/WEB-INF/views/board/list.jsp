@@ -8,7 +8,7 @@
 	<jsp:include page="../layout/header.jsp" />
 	<h1>Board list page</h1>
 	<!-- 검색라인 -->
-	<%-- <form action="/board/list" method="get">
+	<form action="/board/list" method="get">
     <div class="row g-3 justify-content-center">
       <div class="col-sm-7">
         <input
@@ -39,7 +39,7 @@
     <span class="visually-hidden">unread messages</span>        
       </div>
     </div>
-	</form> --%>
+	</form> 
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -68,30 +68,29 @@
 		</tbody>
 	</table>
 	<!-- 페이지네이션 라인 -->
-	<%-- <nav aria-label="Page navigation example">
+	 <nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
-			<c:if test="${ph.prev }">
-			<li class="page-item">
+		
+			<li class="page-item ${ph.prev eq false ? 'disabled' : '' }">
 			<a class="page-link" href="/board/list?pageNo=${ph.startPage-1 }&qyt=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}"
 				aria-label="Previous">
 				 <span aria-hidden="true">&laquo;</span>
 			</a>
 			</li>
-			</c:if>
-			
+	
 			<c:forEach begin="${ph.startPage }" end="${ph.endPage }" var="i">
-				<li class="page-item"><a class="page-link" href="/board/list?pageNo=${i }&qyt=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}">${i }</a></li>
+				<li class="page-item ${ph.pgvo.pageNo eq i ? 'active' : '' } }"><a class="page-link" href="/board/list?pageNo=${i }&qyt=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}">${i }</a></li>
 			</c:forEach>
 			
-			<c:if test="${ph.next }">
-			<li class="page-item"><a class="page-link" href="/board/list?pageNo=${ph.endPage+1 }&qyt=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}"
-				aria-label="Next"> 
+			
+			<li class="page-item ${ph.next eq false ? 'disabled' : '' }" >
+			<a class="page-link" href="/board/list?pageNo=${ph.endPage+1 }&qyt=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}" aria-label="Next"> 
 				<span aria-hidden="true">&raquo;</span>
 			</a>
 			</li>
-			</c:if>
+	
 		</ul>
-	</nav> --%>
+	</nav> 
 
 </div>
 <jsp:include page="../layout/footer.jsp" />
