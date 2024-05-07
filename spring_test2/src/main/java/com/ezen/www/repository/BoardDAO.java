@@ -13,7 +13,7 @@ public interface BoardDAO {
 
 	BoardVO getDetail(int bno);
 
-	void modify(BoardVO bvo);
+//	void modify(BoardVO bvo);
 
 	void remove(BoardVO bvo);
 
@@ -22,6 +22,8 @@ public interface BoardDAO {
 	int cmtCnt();
 
 	int selectOneBno();
+
+	int update(BoardVO bvo);
 
 
 }

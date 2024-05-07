@@ -10,7 +10,7 @@
 	<jsp:include page="../layout/header.jsp" />
 	<div class="container-md">
 		<h1>Board detail page</h1>
-		<c:set value="${bvo }" var="bvo"></c:set>
+		<c:set value="${ bdto.bvo}" var="bvo"></c:set>
 		<div class="mb-3">
 			<label for="n" class="form-label">bno</label> <input type="text"
 				class="form-control" name="bno" value="${bvo.bno}" id="n"
@@ -38,37 +38,42 @@
 		</div>
 		
 		<!-- image 파일 띄우는 곳 -->
-		<%-- <c:set value="${bdto.flist}" var="flist"></c:set>
+		<c:set value="${bdto.flist}" var="flist"></c:set>
 		<div class="mb-3">
 			<ul class="list-group list-group-flush">
 			<!-- 파일 개수만큼 li를 반복하여 파일 표시 / 타입이 1인 경우만 -->
 			<!-- li > div > img -->
 			<!--    > div > 파일이름, 작성일, 사이즈, span size -->
-			<c:forEach items="${flist }" var="fvo">
+			<c:forEach items="${bdto.flist }" var="fvo">
 				<li class="list-group-item">
 					<c:choose>
-						<c:when test="${fvo.file_type > 0 }">
+						<c:when test="${fvo.fileType > 0 }">
 							<div>
-								<img alt="" src="/upload/${fvo.save_dir }/${fvo.uuid}_${fvo.file_name}">
+								<img alt="" src="/upload/${fvo.saveDir }/${fvo.uuid}_${fvo.fileName}">
 							</div>
 						</c:when>
 						<c:otherwise>
 							<div>
-								<!-- file_type == 0 인 경우 -->
-								
+								<!-- file_type == 0 인 경우 => 아이콘 -->
+								<!--  파일 다운로드 -->
+							<a href="/upload/${fvo.saveDir }/${fvo.uuid}_${fvo.fileName}" download="${fvo.fileName}">	
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder2" viewBox="0 0 16 16">
+  									<path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5z"/>
+								</svg>	
+							</a>
 							</div>
 						</c:otherwise>
 					</c:choose>
 					<div>
 						<!-- 파일이름, 작성일, 사이즈, span size -->
-						<div>${fvo.file_name }</div>
-						${fvo.reg_date }
-						<span class="badge text-bg-warning">${fvo.file_size }byte</span>
+						<div>${fvo.fileName }</div>
+						${fvo.regDate }
+						<span class="badge text-bg-warning">${fvo.fileSize }byte</span>
 					</div>
 				</li>
 			</c:forEach>
-  			</ul> --%>
-	<!-- 	</div> -->
+  			</ul> 
+	</div> 
 		<!-- comment -->
 		<!-- 댓글 등록 라인  -->
 		 <br>

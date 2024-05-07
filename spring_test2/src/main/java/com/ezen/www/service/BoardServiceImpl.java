@@ -50,18 +50,22 @@ public class BoardServiceImpl implements BoardService {
 		log.info("board getlist service in");
 		return bdao.getList(pgvo);
 	}
-
+	
+	@Transactional
 	@Override
-	public BoardVO getDetail(int bno) {
+	public BoardDTO getDetail(int bno) {
 		log.info("board getdetail service in");
-		return bdao.getDetail(bno);
+		BoardVO bvo = bdao.getDetail(bno);
+		List<FileVO> flist = fdao.getList(bno);
+		BoardDTO bdto = new BoardDTO(bvo, flist);
+		return bdto;
 	}
 
-	@Override
-	public void modify(BoardVO bvo) {
-		log.info("board modify service in");
-		bdao.modify(bvo);
-	}
+//	@Override
+//	public void modify(BoardVO bvo) {
+//		log.info("board modify service in");
+//		bdao.modify(bvo);
+//	}
 
 	@Override
 	public void remove(BoardVO bvo) {
@@ -80,4 +84,34 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return bdao.cmtCnt();
 	}
+
+	@Override
+	public int removeFile(String uuid) {
+		// TODO Auto-generated method stub
+		return fdao.removeFile(uuid);
+	}
+
+	@Transactional
+	@Override
+	public int update(BoardDTO bdto) {
+		log.info(">>> board update service ok");
+		//파일 추가 작업
+		//bvo => boardMapper / flist => fileMapper
+		int isOk = bdao.update(bdto.getBvo());
+		
+		if(bdto.getFlist() == null) {
+			return isOk;
+		}
+		
+		//bvo업데이트 완료, 파일도 있다면 파일 추가
+		if(isOk > 0 && bdto.getFlist().size() > 0) {
+			for(FileVO fvo : bdto.getFlist()) {
+				fvo.setBno(bdto.getBvo().getBno());
+				isOk *= fdao.insertFile(fvo);
+			}
+		}
+		return isOk;
+	}
+
+
 }

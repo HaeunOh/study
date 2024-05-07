@@ -18,7 +18,7 @@
   		select * from board where bno = #{bno}
   	</select>
   	
-  	<update id="modify">
+  	<update id="update">
   		update board set title = #{title}, content = #{content} where bno = #{bno}
   	</update>
   	
@@ -39,7 +39,6 @@
 		select max(bno) from board where isDel = "N"
 	</select>
 	
-  	
   	<!-- search line -->
   	<sql id="search">
   		<if test="type != null">

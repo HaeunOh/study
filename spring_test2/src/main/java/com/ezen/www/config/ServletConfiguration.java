@@ -19,7 +19,7 @@ public class ServletConfiguration implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		// 리소스 경로 설정 / 파일 업로드 경로 설정 추가
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-		registry.addResourceHandler("/upload/**").addResourceLocations("/Users/oh-haeun/Desktop/_myProject/_java/_fileUpload/");
+		registry.addResourceHandler("/upload/**").addResourceLocations("file:////Users/oh-haeun/Desktop/_myProject/_java/_fileUpload/");
 	}
 
 	@Override

@@ -26,46 +26,15 @@
         </li> <li class="nav-item">
           <a class="nav-link" href="/board/list">게시판 보기</a>
         </li>
-<%--          <li class="nav-item">
-          <a class="nav-link" href="/member/register">회원가입</a>
+		 <li class="nav-item">
+          <a class="nav-link" href="/user/register">회원가입</a>
         </li>
-        <c:if test="${ses.id  eq null}">
+    
          <li class="nav-item">
-          <a class="nav-link" href="/member/login">로그인</a>
+          <a class="nav-link" href="/user/login">로그인</a>
         </li>
-        </c:if>
-        <c:if test="${ses.id  ne null}">
-         <li class="nav-item">
-          <a class="nav-link" href="/member/logout">로그아웃</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/member/modify">${ses.id }(${ses.email }) welcome!</a>
-        </li>
-        </c:if> --%>
-        
-      <!-- 드롭다운박스 & 검색창 -->
-      <!--   <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-        
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button> -->
-        
-        
-      </form>
+   	 </ul>  
+    
     </div>
   </div>
 </nav>
