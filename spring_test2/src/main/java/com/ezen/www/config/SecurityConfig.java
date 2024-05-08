@@ -40,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	//UserDetail 객체 빈 생성 => 사용자 커스텀 객체
+	@Bean
 	public UserDetailsService customUserService() {
 		return new CustomAuthUserService();
 	}

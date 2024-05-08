@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://www.springframework.org/security/tags"  prefix="sec"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,8 @@
 			</div>
 			<div class="mb-3">
 				<label for="w" class="form-label">writer</label> 
-				<input type="text" class="form-control" name="writer" id="w" placeholder="wrtier...">
+				<sec:authentication property="principal.uvo.nickName" var="authNick"/>
+				<input type="text" class="form-control" name="writer" id="w" value="${authNick }" placeholder="wrtier...">
 			</div>
 			<div class="mb-3">
   			<span class="input-group-text">With textarea</span>
