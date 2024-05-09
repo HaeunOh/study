@@ -19,11 +19,17 @@ public interface BoardDAO {
 
 	int getTotal(PagingVO pgvo);
 
-	int cmtCnt();
 
 	int selectOneBno();
 
 	int update(BoardVO bvo);
 
+	void plusViewCount(int bno);
+
+	int cmtCnt();
+	
+	int fileCnt();
+
+	
 
 }

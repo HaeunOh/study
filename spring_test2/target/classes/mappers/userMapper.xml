@@ -28,4 +28,24 @@
 		select * from user
 	</select>
 	
+	<update id="updateUserInfo">
+		update user set pwd = #{pwd}, nick_name = #{nickName} where email = #{email}
+	</update>
+	
+	<update id="updateNicknameOnly">
+		update user set nick_name = #{nickName} where email = #{email}
+	</update>
+	
+	<delete id="removeAuth">
+		delete from auth_user where email = #{email}
+	</delete>
+	
+	<delete id="removeUser">
+		delete from user where email = #{email}
+	</delete>
+	
+	<select id="checkEmail" resultType="int">
+		select count(email) from user where email = #{email}
+	</select>
+	
   </mapper>

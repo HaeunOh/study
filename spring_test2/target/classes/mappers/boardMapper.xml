@@ -14,6 +14,10 @@
   		  order by bno desc limit #{pageStart}, #{qty}
   	</select>
   	
+  	<update id="plusViewCount">
+  		update board set read_count = read_count+1 where bno = #{bno}
+  	</update>
+  	
   	<select id="getDetail" resultType="com.ezen.www.domain.BoardVO">
   		select * from board where bno = #{bno}
   	</select>
@@ -38,6 +42,12 @@
 	<select id="selectOneBno" resultType="int">
 		select max(bno) from board where isDel = "N"
 	</select>
+	
+	<update id="fileCnt">
+		update board b set b.has_file = (select count(uuid) from file f where f.bno = b.bno);
+	</update>
+	
+	
 	
   	<!-- search line -->
   	<sql id="search">

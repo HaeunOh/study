@@ -113,6 +113,17 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	@GetMapping("/fileCnt")
+	public String fileCnt() {
+		int isOk = bsv.fileCnt();
+		if(isOk > 0) {
+			log.info("board fileCnt ok!");
+		}
+		
+		return "redirect:/board/list";
+	}
+	
+	
 	@DeleteMapping(value="/{uuid}" , produces = MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> removeFile(@PathVariable("uuid")String uuid){
 		int isOk = bsv.removeFile(uuid);
@@ -120,6 +131,8 @@ public class BoardController {
 		return isOk > 0 ? new ResponseEntity<String>("1",HttpStatus.OK) : 
 			new ResponseEntity<String>("0", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	
 	
 	
 	

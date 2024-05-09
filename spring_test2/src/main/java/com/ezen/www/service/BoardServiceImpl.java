@@ -54,6 +54,7 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional
 	@Override
 	public BoardDTO getDetail(int bno) {
+		bdao.plusViewCount(bno);
 		log.info("board getdetail service in");
 		BoardVO bvo = bdao.getDetail(bno);
 		List<FileVO> flist = fdao.getList(bno);
@@ -79,11 +80,6 @@ public class BoardServiceImpl implements BoardService {
 		return bdao.getTotal(pgvo);
 	}
 
-	@Override
-	public int cmtCnt() {
-		// TODO Auto-generated method stub
-		return bdao.cmtCnt();
-	}
 
 	@Override
 	public int removeFile(String uuid) {
@@ -111,6 +107,18 @@ public class BoardServiceImpl implements BoardService {
 			}
 		}
 		return isOk;
+	}
+
+	@Override
+	public int cmtCnt() {
+		// TODO Auto-generated method stub
+		return bdao.cmtCnt();
+	}
+	
+	@Override
+	public int fileCnt() {
+		// TODO Auto-generated method stub
+		return bdao.fileCnt();
 	}
 
 

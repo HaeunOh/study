@@ -19,5 +19,15 @@ public interface UserDAO {
 
 	List<UserVO> getList();
 
+	void updateUserInfo(UserVO uvo);
+
+	void updateNicknameOnly(UserVO uvo);
+
+	int removeAuth(String myName);
+
+	void removeUser(String myName);
+
+	int checkEmail(String email);
+
 
 }

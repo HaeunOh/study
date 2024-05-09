@@ -7,4 +7,10 @@
 		</h1>
 		<br>
 	</div>
+	<script>
+	 const msg_remove = `<c:out value="${deleteMsg}}"/>`;
+	 if(msg_remove === "1"){
+		 alert("회원 탈퇴가 완료되었습니다.");
+	 }
+	</script>
 <jsp:include page="layout/footer.jsp"/>

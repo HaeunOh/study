@@ -1,4 +1,5 @@
 console.log("js in");
+console.log("id>>>"+ id);
 document.getElementById('cmtAddBtn').addEventListener('click', ()=>{
     const cmtWriter = document.getElementById('cmtWriter').innerText;
     const cmtText = document.getElementById('cmtText').value;
@@ -61,8 +62,10 @@ function spreadCommentList(bno, page=1) {
                 add += `<div class="myContent">${cvo.content}</div>`;
                 add += `</div>`;
                 add += `<span class="badge rounded-pill text-bg-dark">${cvo.regDate}</span>`;
+                if(id === cvo.writer){
                 add += `<button type="button" data-cno="${cvo.cno}" class="btn btn-outline-warning btn-sm cmtModBtn" data-bs-toggle="modal" data-bs-target="#myModal" >수정</button>`;
                 add += `<button type="button" data-cno="${cvo.cno}" class="btn btn-outline-danger btn-sm cmtDelBtn" id="cmtDelBtn">삭제</button>`;
+                }
                 add += `</li> </ul>`;
                 div.innerHTML += add;
             }

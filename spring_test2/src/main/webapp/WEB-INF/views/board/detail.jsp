@@ -125,16 +125,18 @@
 		</div>
 			<br>
 			<hr>
-
+			 <sec:authentication property="principal.uvo.nickName" var="authNick"/>
+			 <c:if test="${authNick eq bvo.writer }">
 			 <a href="/board/modify?bno=${bvo.bno}"><button type="button" class="btn btn-warning">수정</button></a> 
 			 <a href="/board/remove?bno=${bvo.bno}"><button type="button" class="btn btn-danger" id="cmtDelBtn">삭제</button></a>
-			 <%-- </c:if>  --%>
+			 </c:if>
 			 <a href="/board/list"><button type="button" class="btn btn-primary">리스트</button></a>
 
 		</div>  
+		<sec:authentication property="principal.uvo.nickName" var="authNick"/>
 		<script type="text/javascript"> 
 		const bnoVal = `<c:out value="${bvo.bno}"/>`;
-		
+		const id = `${authNick}`;
 		</script>
 		<script type="text/javascript" src="/resources/js/boardDetailComment.js"></script>
 		 <script type="text/javascript"> spreadCommentList(bnoVal); </script>

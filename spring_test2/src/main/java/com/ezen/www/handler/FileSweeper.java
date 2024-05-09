@@ -70,7 +70,6 @@ public class FileSweeper {
 			}
 		}
 		
-		
 		log.info(">>>> FileSweeper Running End! : {}", LocalDateTime.now());
 	}
 }

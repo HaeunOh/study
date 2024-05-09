@@ -20,11 +20,14 @@ public interface BoardService {
 
 	int getTotal(PagingVO pgvo);
 
-	int cmtCnt();
 
 	int removeFile(String uuid);
 
 	int update(BoardDTO bdto);
+
+	int cmtCnt();
+	
+	int fileCnt();
 
 	
 

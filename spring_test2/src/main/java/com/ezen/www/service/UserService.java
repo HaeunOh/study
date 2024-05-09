@@ -10,5 +10,11 @@ public interface UserService {
 
 	List<UserVO> getList();
 
+	void modify(UserVO uvo);
+
+	int remove(String myName);
+
+	int checkEmail(String email);
+
 
 }
