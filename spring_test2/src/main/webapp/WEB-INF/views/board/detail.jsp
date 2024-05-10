@@ -75,9 +75,9 @@
 			</c:forEach>
   			</ul> 
 	</div> 
+		<sec:authentication property="principal.uvo.nickName" var="authNick"/>
 		<!-- comment -->
 		<!-- 댓글 등록 라인  -->
-		<sec:authentication property="principal.uvo.nickName" var="authNick"/>
 		 <br>
 		<hr>
 		<div class="input-group mb-3">
@@ -86,7 +86,7 @@
 				id="cmtText" aria-label="Username" aria-describedby="basic-addon1">
 				
 				<!-- 내가 에이태그 추가함 -->
-			<button type="button" id="cmtAddBtn" class="btn btn-secondary">post</button>
+			<a href="/board/cmtCnt"><button type="button" id="cmtAddBtn" class="btn btn-secondary">post</button></a>
 		</div>
 
 		<!-- 댓글 출력 라인  -->

@@ -38,7 +38,7 @@
 				
 				</div>
 			</div> 
-			<button type="submit" class="btn btn-primary" id="regBtn">등록</button>
+			<a href="/board/fileCnt"></a><button type="submit" class="btn btn-primary" id="regBtn">등록</button></a>
 		</form>
 	</div>
 	<script type="text/javascript" src="/resources/js/boardRegister.js"></script>

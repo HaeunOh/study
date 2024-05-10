@@ -38,6 +38,11 @@ public class BoardController {
 	@Autowired(required=true)
 	private FileHandler fh;
 	
+	@GetMapping("/home")
+	public String home () {
+		return "redirect:/";
+	}
+	
 	@GetMapping("/register")
 	public String register() {
 		return "/board/register";
@@ -72,6 +77,8 @@ public class BoardController {
 		
 		m.addAttribute("ph", ph);
 		m.addAttribute("list", list);
+		fileCnt();
+		cmtCnt();
 		return "/board/list";
 	}
 	
